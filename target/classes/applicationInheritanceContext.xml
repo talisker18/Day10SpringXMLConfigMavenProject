@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans
+   http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+   
+  <!--<bean id="p1" class="Day10.models.Person">
+   		<constructor-arg value="1" type="int"></constructor-arg>
+   		<constructor-arg value="Joel Person" type="String"></constructor-arg>
+   </bean>
+   
+   <bean id="a1" class="Day10.models.Address">
+   		<constructor-arg value="Baslerstrasse 10" type="String"></constructor-arg>
+   		<constructor-arg value="Switzerland" type="String"></constructor-arg>
+   		<constructor-arg value="Frenkendorf" type="String"></constructor-arg>
+   </bean>
+   
+   <bean id="person-main" class="Day10.models.Person" parent="p1">
+   		<constructor-arg ref="a1"></constructor-arg>
+   </bean>-->
+   
+   
+   <!-- better approach: declare address first, then the Person and inject address obj into Person bean
+   as constructor-arg
+    -->
+   
+   <bean id="a1" class="Day10.models.Address">
+   		<constructor-arg value="Baslerstrasse 10" type="String"></constructor-arg>
+   		<constructor-arg value="Switzerland" type="String"></constructor-arg>
+   		<constructor-arg value="Frenkendorf" type="String"></constructor-arg>
+   </bean>
+   
+   <bean id="p1" class="Day10.models.Person">
+   		<constructor-arg value="1" type="int"></constructor-arg>
+   		<constructor-arg value="Joel Person" type="String"></constructor-arg>
+   		<constructor-arg ref="a1" type="Day10.models.Address"></constructor-arg>
+   </bean>
+   
+   
+</beans>
